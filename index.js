@@ -2,7 +2,7 @@ var EventEmitter = require('events').EventEmitter;
 var simplesmtp = require('simplesmtp');
 var MailParser = require('mailparser').MailParser;
 
-function TestMailbox() {
+function SmtpSupertest() {
     var self = new EventEmitter(),
         smtp = simplesmtp.createServer({
                                            timeout: 100,
@@ -26,11 +26,6 @@ function TestMailbox() {
         envelope.saveStream.write(chunk);
     });
 
-    smtp.on('dataReady', function (envelope, callback) {
-        envelope.saveStream.end();
-        callback(null, 'queueId');
-
-    });
 
     self.listen = function (port) {
         smtp.listen(port);
@@ -43,4 +38,4 @@ function TestMailbox() {
     return self;
 }
 
-module.exports = TestMailbox;
+module.exports = SmtpSupertest;

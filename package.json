@@ -1,5 +1,5 @@
 {
-    "name": "test-mailbox",
+    "name": "smtp-supertest",
     "version": "0.0.1",
     "description": "Simple smtp mail testing package",
     "main": "index.js",
@@ -11,7 +11,8 @@
 
     "keywords": [
         "smtp",
-        "testing"
+        "testing",
+        "supertest"
     ],
     "author": "Tadeusz Wójcik",
     "license": "MIT"
