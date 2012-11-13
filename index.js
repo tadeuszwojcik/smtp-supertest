@@ -26,6 +26,11 @@ function SmtpSupertest() {
         envelope.saveStream.write(chunk);
     });
 
+    smtp.on('dataReady', function (envelope, callback) {
+        envelope.saveStream.end();
+        callback(null, 'queueId');
+
+    });
 
     self.listen = function (port) {
         smtp.listen(port);
